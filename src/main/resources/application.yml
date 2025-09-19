@@ -1,3 +1,10 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+app:
+  reactor:
+    name: ${REACTOR_NAME:Reactor One}
+
 management:
   endpoints:
     web:

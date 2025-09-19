@@ -56,14 +56,14 @@ management:
 2. Crear `Dockerfile` (ejemplo):
    ```dockerfile
    FROM eclipse-temurin:11-jdk
-   COPY target/sp-boot-for-k8s-1.0.0.jar app.jar
+   COPY target/nuclear-control-panel-1.0.0.jar app.jar
    ENTRYPOINT ["java","-jar","/app.jar"]
    ```
 
 3. Construir y ejecutar:
    ```bash
-   docker build -t sp-boot-for-k8s-1.0:1.0 .
-   docker run -d -p 8080:8080 --name app1 sp-boot-for-k8s-1.0:1.0 
+   docker build -t nuclear-control-panel:1.0 .
+   docker run -d -p 8080:8080 --name app1 nuclear-control-panel:1.0 
    ```
 
 ## ☸️ Uso en Kubernetes
