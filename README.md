@@ -1,13 +1,12 @@
-# k8s-spring-boot-actuator
+# Spring Boot Actuator Example (Java 11)
 
-# Spring Boot Actuator Example
-
-Este es un ejemplo mínimo de aplicación **Spring Boot** con **Actuator** habilitado, listo para integrarse con **Kubernetes** usando probes de *liveness* y *readiness*.
+Este es un ejemplo mínimo de aplicación **Spring Boot** con **Actuator** habilitado, listo para integrarse con **Kubernetes** usando probes de *liveness* y *readiness*.  
+Compatible con **Java 11** gracias a Spring Boot **2.7.x**.
 
 ## 📦 Requisitos
 
-- Java 17+
-- Maven 3.8+
+- Java 11
+- Maven 3.6+
 - Docker (opcional, para contenedores)
 - Kubernetes (opcional, para probar probes)
 
@@ -56,15 +55,15 @@ management:
 
 2. Crear `Dockerfile` (ejemplo):
    ```dockerfile
-   FROM eclipse-temurin:17-jdk
-   COPY target/demo-0.0.1-SNAPSHOT.jar app.jar
+   FROM eclipse-temurin:11-jdk
+   COPY target/sp-boot-for-k8s-1.0.0.jar app.jar
    ENTRYPOINT ["java","-jar","/app.jar"]
    ```
 
 3. Construir y ejecutar:
    ```bash
-   docker build -t spring-boot-actuator-example .
-   docker run -p 8080:8080 spring-boot-actuator-example
+   docker build -t sp-boot-for-k8s-1.0:1.0 .
+   docker run -d -p 8080:8080 --name app1 sp-boot-for-k8s-1.0:1.0 
    ```
 
 ## ☸️ Uso en Kubernetes
@@ -86,7 +85,3 @@ readinessProbe:
   initialDelaySeconds: 10
   periodSeconds: 5
 ```
-
----
-
-✅ Con este ejemplo puedes probar cómo Spring Boot Actuator facilita la integración con Kubernetes.
