@@ -86,8 +86,8 @@ Lista los Pods otra vez:
 kubectl get pods -l app=reactor
 ```
 
-Notarás que el Pod que falló desaparece, y Kubernetes crea uno nuevo automáticamente para mantener las réplicas.  
-¡Esa es la magia del ReplicaSet! 💡
+Notarás que el Pod que falló se reinicia de forma automatica.  
+¡Esa es la magia de Kubernetes! 💡
 
 ---
 
