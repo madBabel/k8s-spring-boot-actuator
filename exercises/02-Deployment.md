@@ -12,25 +12,27 @@ Archivo: **`deployment.yaml`**
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+  name: reactor-deployment
   labels:
-    app: nginx
+    app: reactor
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: reactor
   template:
     metadata:
       labels:
-        app: nginx
+        app: reactor
     spec:
       containers:
-        - name: nginx
-          image: nginx:1.25
+        - name: reactor
+          image: nuclear-control-panel:1.0
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 ```
+
+---
 
 ## 2️⃣ Aplicar y verificar
 
@@ -38,32 +40,63 @@ spec:
 kubectl apply -f deployment.yaml
 kubectl get deployments
 kubectl get rs
-kubectl get pods -l app=nginx
+kubectl get pods -l app=reactor
 ```
 
-## 3️⃣ Actualizar imagen
+---
+
+## 3️⃣ Acceder a un Pod
+
+```bash
+kubectl port-forward <nombre-del-pod> 8080:8080
+curl http://localhost:8080/reactor
+```
+
+---
+
+## 4️⃣ Provocar un fallo con `/reactor/crash`
+
+```bash
+curl -X POST http://localhost:8080/reactor/crash
+```
+
+La respuesta será inmediata:
+
+```
+OK: se romperá el reactor en 2 segundos
+```
+
+👉 Tras 2 segundos, el Pod se cerrará. Kubernetes detectará la caída y el **Deployment** se encargará de crear un Pod nuevo.
+
+---
+
+## 5️⃣ Actualizar imagen
 
 Edita `deployment.yaml`:
 
 ```yaml
-image: nginx:1.26
+image: nuclear-control-panel:2.0
 ```
 
 Y aplica:
 
 ```bash
 kubectl apply -f deployment.yaml
-kubectl rollout status deployment nginx-deployment
+kubectl rollout status deployment reactor-deployment
 ```
 
-## 4️⃣ Rollback
+---
+
+## 6️⃣ Rollback
 
 ```bash
-kubectl rollout undo deployment nginx-deployment
+kubectl rollout undo deployment reactor-deployment
 ```
 
-## 5️⃣ Eliminar
+---
+
+## 7️⃣ Eliminar
 
 ```bash
-kubectl delete deployment nginx-deployment
+kubectl delete deployment reactor-deployment
 ```
