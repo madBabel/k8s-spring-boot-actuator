@@ -66,11 +66,14 @@ La respuesta será inmediata:
 OK: se romperá el reactor en 2 segundos
 ```
 
-👉 Tras 2 segundos, el Pod se cerrará. Kubernetes detectará la caída y el **Deployment** se encargará de crear un Pod nuevo.
+Notarás que el Pod que falló se reinicia de forma automatica.
+¡Esa es la magia de Kubernetes! 💡
 
 ---
 
 ## 5️⃣ Actualizar imagen
+
+genera una nueva imagen: nuclear-control-panel:2.0 y publicarla en docker hub
 
 Edita `deployment.yaml`:
 
