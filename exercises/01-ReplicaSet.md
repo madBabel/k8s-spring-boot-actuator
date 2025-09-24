@@ -65,7 +65,7 @@ curl http://localhost:8080/reactor
 Haz la llamada al endpoint de crash:
 
 ```bash
-curl -X POST http://localhost:8080/reactor/crash
+curl http://localhost:8080/reactor/crash
 ```
 
 La respuesta será inmediata:
