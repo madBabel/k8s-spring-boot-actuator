@@ -51,24 +51,7 @@ curl http://localhost:8080/reactor
 
 ---
 
-## 4️⃣ Provocar un fallo con `/reactor/crash` a través del Service
-
-```bash
-curl -X POST http://localhost:8080/reactor/crash
-```
-
-La respuesta será:
-
-```
-OK: se romperá el reactor en 2 segundos
-```
-
-👉 Uno de los Pods del Deployment se cerrará.  
-El Service detectará el cambio y seguirá redirigiendo tráfico a los Pods sanos automáticamente.
-
----
-
-## 5️⃣ Eliminar
+## 4️⃣  Eliminar
 
 ```bash
 kubectl delete svc reactor-service
