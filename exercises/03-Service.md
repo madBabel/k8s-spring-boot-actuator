@@ -12,16 +12,18 @@ Archivo: **`service.yaml`**
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  name: reactor-service
 spec:
   selector:
-    app: nginx
+    app: reactor
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80
+      targetPort: 8080
   type: NodePort
 ```
+
+---
 
 ## 2️⃣ Aplicar el Service
 
@@ -30,23 +32,44 @@ kubectl apply -f service.yaml
 kubectl get svc
 ```
 
+---
+
 ## 3️⃣ Acceder al servicio
 
 Con Minikube:
 
 ```bash
-minikube service nginx-service
+minikube service reactor-service
 ```
 
 Con port-forward:
 
 ```bash
-kubectl port-forward svc/nginx-service 8080:80
-curl http://localhost:8080
+kubectl port-forward svc/reactor-service 8080:80
+curl http://localhost:8080/reactor
 ```
 
-## 4️⃣ Eliminar
+---
+
+## 4️⃣ Provocar un fallo con `/reactor/crash` a través del Service
 
 ```bash
-kubectl delete svc nginx-service
+curl -X POST http://localhost:8080/reactor/crash
+```
+
+La respuesta será:
+
+```
+OK: se romperá el reactor en 2 segundos
+```
+
+👉 Uno de los Pods del Deployment se cerrará.  
+El Service detectará el cambio y seguirá redirigiendo tráfico a los Pods sanos automáticamente.
+
+---
+
+## 5️⃣ Eliminar
+
+```bash
+kubectl delete svc reactor-service
 ```
