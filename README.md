@@ -1,7 +1,10 @@
-# Spring Boot Actuator Example (Java 11)
+# ⚛️ Nuclear Control Panel (Spring Boot Actuator Example, Java 11)
 
 Este es un ejemplo mínimo de aplicación **Spring Boot** con **Actuator** habilitado, listo para integrarse con **Kubernetes** usando probes de *liveness* y *readiness*.  
+Además incluye un **simulador de reactor nuclear** con endpoints REST para integrarlo en un cuadro de mando.  
 Compatible con **Java 11** gracias a Spring Boot **2.7.x**.
+
+---
 
 ## 📦 Requisitos
 
@@ -9,6 +12,8 @@ Compatible con **Java 11** gracias a Spring Boot **2.7.x**.
 - Maven 3.6+
 - Docker (opcional, para contenedores)
 - Kubernetes (opcional, para probar probes)
+
+---
 
 ## 🚀 Ejecutar la aplicación
 
@@ -18,14 +23,37 @@ mvn spring-boot:run
 
 La aplicación se levantará en [http://localhost:8080](http://localhost:8080).
 
+---
+
 ## 🔍 Endpoints disponibles
 
-Gracias a **Spring Boot Actuator**, se exponen:
+### Endpoints Actuator
 
 - `http://localhost:8080/actuator/health` → estado global
 - `http://localhost:8080/actuator/health/liveness` → liveness probe
 - `http://localhost:8080/actuator/health/readiness` → readiness probe
-- `http://localhost:8080/actuator/info` → información de la app (se puede enriquecer con metadatos en `application.yml`)
+- `http://localhost:8080/actuator/info` → información de la app (puede enriquecerse con metadatos en `application.yml`)
+
+### Endpoints Reactor
+
+- `GET /reactor`  
+  Devuelve un JSON con la información básica del reactor:
+  ```json
+  {
+    "reactor": "Springfield-Reactor",
+    "port": "8080"
+  }
+  ```
+
+- `POST /reactor/crash`  
+  Simula una **falla catastrófica**.  
+  Responde inmediatamente:
+  ```text
+  OK: se romperá el reactor en 2 segundos
+  ```
+  y tras 2 segundos finaliza el proceso (`System.exit(1)`), provocando que Docker/Kubernetes reinicie el contenedor.
+
+---
 
 ## ⚙️ Configuración relevante (`application.yml`)
 
@@ -45,6 +73,8 @@ management:
     readinessState:
       enabled: true
 ```
+
+---
 
 ## 🐳 Ejecutar en Docker
 
@@ -66,6 +96,8 @@ management:
    docker run -d -p 8080:8080 --name app1 nuclear-control-panel:1.0 
    ```
 
+---
+
 ## ☸️ Uso en Kubernetes
 
 Ejemplo de configuración de probes en un Deployment:
@@ -85,3 +117,13 @@ readinessProbe:
   initialDelaySeconds: 10
   periodSeconds: 5
 ```
+
+---
+
+## 📘 Ejercicios de Kubernetes
+
+Puedes practicar con ejemplos de **ReplicaSets, Deployments y Services** en Kubernetes siguiendo estos ejercicios:
+
+👉 [ReplicaSet](./exercises/01-ReplicaSet.md)
+👉 [Deployment](./exercises/02-Deployment.md)
+👉 [Service](./exercises/03-Service.md)
