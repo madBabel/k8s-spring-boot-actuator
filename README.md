@@ -122,7 +122,7 @@ readinessProbe:
 
 ## 📘 Ejercicios de Kubernetes
 
-Puedes practicar con ejemplos de **ReplicaSets, Deployments y Services** en Kubernetes siguiendo estos ejercicios:
+Puedes practicar con ejemplos de **ReplicaSets, Deployments y Services** en Kubernetes siguiendo estos ejercicios: (Acordaos de ejecutar minikube start para arrancar el cluster)
 
 👉 [ReplicaSet](./exercises/01-ReplicaSet.md)
 👉 [Deployment](./exercises/02-Deployment.md)
