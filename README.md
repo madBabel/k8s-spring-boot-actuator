@@ -122,7 +122,13 @@ readinessProbe:
 
 ## 📘 Ejercicios de Kubernetes
 
-Puedes practicar con ejemplos de **ReplicaSets, Deployments y Services** en Kubernetes siguiendo estos ejercicios: (Acordaos de ejecutar minikube start para arrancar el cluster)
+Puedes practicar con ejemplos de **ReplicaSets, Deployments y Services** en Kubernetes siguiendo estos ejercicios: 
+Consideraciones::
+
+   - Es necesario ejecutar minikube start para arrancar el cluster
+   - Kubernetes, por defecto, intenta buscar esa imagen en un registry público (Docker Hub). si no existe ahi, falla al hacer pull. Habría que hacer un push antes ;)
+
+   
 
 👉 [ReplicaSet](./exercises/01-ReplicaSet.md)
 👉 [Deployment](./exercises/02-Deployment.md)
