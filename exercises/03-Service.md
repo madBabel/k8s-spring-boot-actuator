@@ -62,6 +62,7 @@ docker push <tuusuario>/traffic-generator:latest
 ```
 
 ⚠️ Recuerda haber hecho docker login previamente al registry que uses (Docker Hub, GHCR, etc.).
+
 ---
 
 
