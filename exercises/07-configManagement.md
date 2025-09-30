@@ -51,7 +51,7 @@ kubectl apply -f secret.yaml
 
 ## 3️⃣ Crear un Deployment que use ConfigMap y Secret
 
-Archivo: **`deployment.yaml`**
+Archivo: **`deployment-with-config.yaml`**
 
 ```yaml
 apiVersion: apps/v1
