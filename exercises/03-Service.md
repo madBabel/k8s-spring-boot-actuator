@@ -100,5 +100,6 @@ kubectl delete pod <nombre-del-pod>
 ```bash
 kubectl delete pod traffic-generator
 kubectl delete svc reactor-service
+kubectl delete deployment reactor-deployment
 ```
 
