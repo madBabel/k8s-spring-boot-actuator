@@ -17,10 +17,9 @@ spec:
   selector:
     app: reactor
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 8080
-  type: NodePort
+  type: ClusterIP
 ```
 
 ---
