@@ -72,25 +72,8 @@ spec:
 
 ## 3️⃣ Traffic Generator
 
-Archivo: **`traffic-gen.yaml`**
+Archivo: **`traffic-gen/traffic-gen-pod.yaml`**
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: traffic-gen
-spec:
-  containers:
-    - name: traffic
-      image: busybox
-      command: ["/bin/sh", "-c"]
-      args:
-        - >
-          while true;
-          do wget -qO- http://reactor-service:80/reactor || echo "fallo";
-          sleep 2;
-          done
-```
 
 ---
 
@@ -118,7 +101,7 @@ spec:
 ```bash
 kubectl apply -f service.yaml
 kubectl apply -f deployment-probes.yaml
-kubectl apply -f traffic-gen.yaml
+kubectl apply -f traffic-gen/traffic-gen-pod.yaml
 ```
 
 ---
