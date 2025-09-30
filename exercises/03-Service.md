@@ -42,6 +42,7 @@ Con Minikube:
 
 ```bash
 minikube service reactor-service
+curl http://<tunnel for service reactor-service>/reactor
 ```
 
 Con port-forward:
