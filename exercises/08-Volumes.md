@@ -6,7 +6,7 @@ Este ejercicio muestra cómo montar un **ConfigMap** y un **Secret** en un Pod q
 
 ## 1️⃣ Crear un ConfigMap con configuración del reactor
 
-Archivo: **`configmap.yaml`**
+Archivo: **`reactor-configmap.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -23,7 +23,7 @@ data:
 
 ## 2️⃣ Crear un Secret con credenciales
 
-Archivo: **`secret.yaml`**
+Archivo: **`reactor-secret.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -39,7 +39,7 @@ data:
 
 ## 3️⃣ Crear un Deployment que use ConfigMap y Secret
 
-Archivo: **`deployment.yaml`**
+Archivo: **`reactor-deployment.yaml`**
 
 ```yaml
 apiVersion: apps/v1
@@ -83,9 +83,9 @@ spec:
 
 1. Aplica los recursos:
    ```bash
-   kubectl apply -f configmap.yaml
-   kubectl apply -f secret.yaml
-   kubectl apply -f deployment.yaml
+   kubectl apply -f reactor-configmap.yaml
+   kubectl apply -f reactor-secret.yaml
+   kubectl apply -f reactor-deployment.yaml
    ```
 
 2. Verifica que el archivo se montó en el Pod:
