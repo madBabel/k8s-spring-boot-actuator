@@ -119,7 +119,7 @@ kubectl get pods -n reactor-lab
 
 ## 5️⃣ Intentar crear un Pod que exceda la quota
 
-Archivo: **`pod-fail.yaml`**
+Archivo: **`pod-fail-with-resources.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -143,7 +143,7 @@ spec:
 Intenta aplicarlo:
 
 ```bash
-kubectl apply -f pod-fail.yaml
+kubectl apply -f pod-fail-with-resources.yaml
 ```
 
 👉 Verás un error similar a:
