@@ -30,6 +30,13 @@ spec:
           image: nuclear-control-panel:1.0
           ports:
             - containerPort: 8080
+          env:
+            - name: REACTOR_NAME
+              value: "8080"
+            - name: REACTOR_NAME 
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
 ```
 
 ---
