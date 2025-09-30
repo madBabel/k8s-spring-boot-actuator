@@ -83,7 +83,7 @@ kubectl apply -f limit-range.yaml
 
 ## 4️⃣ Crear un Pod válido
 
-Archivo: **`pod-ok.yaml`**
+Archivo: **`pod-ok-with-resources.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -109,7 +109,7 @@ spec:
 Aplica el Pod:
 
 ```bash
-kubectl apply -f pod-ok.yaml
+kubectl apply -f pod-ok-with-resources.yaml
 kubectl get pods -n reactor-lab
 ```
 
