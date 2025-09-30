@@ -72,7 +72,7 @@ kubectl describe pod reactor-pod
 
 ## 4️⃣ Crear un Service que seleccione por label
 
-Archivo: **`service.yaml`**
+Archivo: **`service-with-selector.yaml`**
 
 ```yaml
 apiVersion: v1
@@ -92,7 +92,7 @@ spec:
 
 Aplica el Service:
 ```bash
-kubectl apply -f service.yaml
+kubectl apply -f service-with-selector.yaml
 kubectl get svc reactor-service
 ```
 
