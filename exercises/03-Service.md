@@ -27,6 +27,8 @@ spec:
 
 ## 2 Aplicar el Service
 
+NOTA: Tened en cuenta que los pods con app=reactor tienen que estar creados (deployment)
+
 ```bash
 kubectl apply -f service.yaml
 kubectl get svc
