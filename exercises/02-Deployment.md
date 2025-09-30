@@ -98,6 +98,8 @@ http://localhost:8080/actuator/info
 
 cierra el port-forward con CTRL+C
 
+Si el info no devuelve la version, comprobarla con el comando describe pod de kubectl
+
 ---
 
 ## 6️⃣ Rollback
@@ -116,6 +118,8 @@ comprueba la version en
 http://localhost:8080/actuator/info
 
 cierra el port-forward con CTRL+C
+
+Si el info no devuelve la version, comprobarla con el comando describe pod de kubectl
 
 
 ---
