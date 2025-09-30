@@ -79,7 +79,11 @@ spec:
             - secretRef:
                 name: reactor-secret
 ```
+Aplicar el deployment
 
+```bash      
+kubectl apply -f deployment-with-config.yaml
+```
 ---
 
 ## 4️⃣ Verificar el Pod
