@@ -5,7 +5,11 @@ app:
   reactor:
     name: ${REACTOR_NAME:Reactor One}
 
+
 management:
+  info:
+    build:
+      enabled: true
   endpoints:
     web:
       exposure:
