@@ -87,6 +87,16 @@ Y aplica:
 kubectl apply -f deployment.yaml
 kubectl rollout status deployment reactor-deployment
 ```
+haz un port-forward sobre uno de los pods:
+
+```bash
+kubectl port-forward $(kubectl get pods -o jsonpath='{.items[0].metadata.name}') 8080:8080
+```
+
+comprueba la version en 
+http://localhost:8080/actuator/info
+
+cierra el port-forward con CTRL+C
 
 ---
 
@@ -94,7 +104,19 @@ kubectl rollout status deployment reactor-deployment
 
 ```bash
 kubectl rollout undo deployment reactor-deployment
+
 ```
+
+
+```bash
+kubectl port-forward $(kubectl get pods -o jsonpath='{.items[0].metadata.name}') 8080:8080
+```
+
+comprueba la version en 
+http://localhost:8080/actuator/info
+
+cierra el port-forward con CTRL+C
+
 
 ---
 
