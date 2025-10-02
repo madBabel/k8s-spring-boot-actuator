@@ -68,6 +68,10 @@ spec:
             periodSeconds: 5
 ```
 
+Para probar que funciona se puede hacer un port-fordward
+
+kubectl port-forward pod 8080:8080
+
 ---
 
 ## 3️⃣ Traffic Generator
