@@ -134,7 +134,7 @@ kubectl apply -f traffic-gen/traffic-gen-pod.yaml
 
 ```bash
 kubectl delete deployment reactor-probes
-kubectl delete pod traffic-gen
+kubectl delete pod traffic-generator
 kubectl delete svc reactor-service
 ```
 
